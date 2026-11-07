@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MyVisaGo — Contenido programado</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#040404;color:#fff;font-family:Montserrat,'Segoe UI',system-ui,sans-serif;
+ padding:40px 28px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto}
+header{border-bottom:2px solid #00C4BA;padding-bottom:22px;margin-bottom:34px}
+.logo{font-size:30px;font-weight:700;letter-spacing:-.5px}
+.logo span{color:#00C4BA}
+.sub{color:#9E9E9E;font-size:13px;margin-top:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:38px}
+.kpi{background:#2A2A2A;border-radius:10px;padding:18px 20px;border-left:3px solid #00C4BA}
+.kpi .n{font-size:30px;font-weight:700;color:#00C4BA;line-height:1.1}
+.kpi .l{font-size:11px;color:#9E9E9E;text-transform:uppercase;letter-spacing:.9px;margin-top:5px}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:1.3px;margin:36px 0 16px;
+ font-weight:600}
+h2::after{content:'';display:block;width:46px;height:2px;background:#00C4BA;margin-top:7px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;color:#9E9E9E;font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;
+ padding:9px 10px;border-bottom:1px solid #2A2A2A;font-weight:600}
+td{padding:12px 10px;border-bottom:1px solid #161616;vertical-align:top}
+tr:hover td{background:#0d0d0d}
+.tag{display:inline-block;background:#2A2A2A;color:#00C4BA;font-size:10.5px;
+ padding:3px 9px;border-radius:20px;white-space:nowrap}
+.hora{color:#00C4BA;font-weight:600;white-space:nowrap}
+.tit{font-weight:500}
+.tx{color:#9E9E9E;font-size:12px;margin-top:3px;display:block}
+.aviso{background:#2a1f00;border-left:3px solid #d99a00;padding:14px 18px;border-radius:8px;
+ font-size:13px;margin-bottom:22px}
+
+/* La campana: cuando falta material, esto es lo primero y lo único que se ve. */
+.alerta{border-radius:14px;padding:34px 36px;margin-bottom:34px;position:relative;overflow:hidden}
+.alerta.roja{background:linear-gradient(135deg,#3a0d0d,#1a0606);border:2px solid #ff4d4d}
+.alerta.ambar{background:linear-gradient(135deg,#2e2200,#17110 0);border:2px solid #d99a00}
+.alerta .badge{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;
+ letter-spacing:1.6px;text-transform:uppercase;padding:7px 16px;border-radius:30px;margin-bottom:18px}
+.alerta.roja .badge{background:#ff4d4d;color:#1a0606}
+.alerta.ambar .badge{background:#d99a00;color:#17110a}
+.alerta .campana{animation:tin 1.6s ease-in-out infinite;display:inline-block;font-size:14px}
+@keyframes tin{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(14deg)}
+ 80%{transform:rotate(-12deg)}90%{transform:rotate(7deg)}}
+.alerta h3{font-size:30px;font-weight:700;line-height:1.22;margin-bottom:14px;letter-spacing:-.4px}
+.alerta.roja h3{color:#ff8080}
+.alerta.ambar h3{color:#ffc247}
+.alerta p{font-size:15px;color:#e4e4e4;max-width:74ch;margin-bottom:10px}
+.alerta .cifra{font-size:62px;font-weight:700;line-height:1;margin:6px 0 4px}
+.alerta.roja .cifra{color:#ff4d4d}
+.alerta.ambar .cifra{color:#d99a00}
+.alerta .cifra small{font-size:16px;font-weight:600;color:#9E9E9E;margin-left:10px}
+.barra{height:11px;background:#000;border-radius:7px;overflow:hidden;margin:20px 0 9px;
+ border:1px solid #333}
+.barra i{display:block;height:100%;border-radius:7px}
+.alerta.roja .barra i{background:linear-gradient(90deg,#ff4d4d,#ff8080)}
+.alerta.ambar .barra i{background:linear-gradient(90deg,#d99a00,#ffc247)}
+.barra-txt{font-size:12px;color:#9E9E9E;display:flex;justify-content:space-between}
+.quehacer{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.quehacer b{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:1.1px}
+.quehacer p{margin-top:8px;font-size:14.5px}
+.ok{background:linear-gradient(135deg,#052420,#021411);border:2px solid #00C4BA;
+ border-radius:14px;padding:26px 32px;margin-bottom:34px}
+.ok h3{color:#00C4BA;font-size:22px;font-weight:700;margin-bottom:7px}
+.ok p{color:#d8d8d8;font-size:14.5px}
+.vacio{color:#9E9E9E;font-style:italic;padding:22px 10px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid #2A2A2A;
+ color:#9E9E9E;font-size:11.5px}
+</style></head><body><div class="wrap">
+<header>
+  <div class="logo">MYvisa<span>GO</span></div>
+  <div class="sub">Contenido programado automáticamente · actualizado 06/11/2026 23:37</div>
+</header>
+<div class="alerta roja">
+  <div class="badge"><span class="campana">&#128276;</span> Sistema en pausa</div>
+  <h3>Listo y esperando. Todavía no se publica nada.</h3>
+  <div class="cifra">16<small>videos preparados de 84</small></div>
+  <p>El sistema ya está armado y probado, pero <b>está detenido a propósito</b>:
+  no hay material suficiente para sostener un ritmo de publicación sin repetir
+  los mismos reels. <b>No se ha publicado ni programado nada.</b></p>
+  <div class="barra"><i style="width:19%"></i></div><div class="barra-txt"><span>16 videos listos</span><span>meta: 84</span></div>
+  <div class="quehacer"><b>Qué falta para arrancar</b>
+  <p>Definir cuántos videos al mes entra el editor y llenar la carpeta de Drive.
+  El día que se encienda, el sistema publica solo, todos los días, sin que nadie lo opere.</p></div>
+</div>
+<div class="kpis"><div class="kpi"><div class="n">16</div><div class="l">videos en la carpeta</div></div><div class="kpi"><div class="n">16</div><div class="l">listos para salir</div></div><div class="kpi"><div class="n">7</div><div class="l">programados</div></div><div class="kpi"><div class="n">3</div><div class="l">redes conectadas</div></div></div>
+<h2>Próximas publicaciones</h2>
+<p class="vacio">Nada programado. El sistema está en pausa hasta que se defina el volumen de video.</p>
+<h2>Biblioteca de contenido</h2>
+<table><tr><th>Reel</th><th>Tema</th><th>Estilo</th><th>Veces programado</th><th>Estado</th></tr><tr><td><span class="tit">Tenemos la costumbre de siempre preguntarle al cliente cómo te enteraste de…</span><span class="tx">MyVisaGo recomendado por IA´s.mp4</span></td><td>Historias de clientes reales</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">De repente me dicen los clientes oye me voy de traje</span><span class="tx">PREMIUM .mp4</span></td><td>Historias de clientes reales</td><td><span class="tag">estudio</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Hay algo bien curioso, prácticamente todos los días por la mañana, nos toca ver…</span><span class="tx">PREMIUM 3 AXIS.mp4</span></td><td>Historias de clientes reales</td><td><span class="tag">estudio</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Algo que siempre me preguntan es, oye Edgar, esto que nos platicas de MyVisaGo…</span><span class="tx">PREMIUM 4.mp4</span></td><td>Historias de clientes reales</td><td><span class="tag">estudio</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">¿Después de cuántas visas negadas debo de decir ya hasta aquí?</span><span class="tx">Despue sde cuantas negadas me rindo.mp4</span></td><td>Mitos sobre la visa</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Me negaron mi visa.</span><span class="tx">Juanita Visas dice que esperes un año es mito”.mp4</span></td><td>Preguntas frecuentes</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">De repente llegan clientes conmigo y me dicen oye cómo le voy a hacer si me…</span><span class="tx">PREMIUM 5.mp4</span></td><td>Preguntas frecuentes</td><td><span class="tag">estudio</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Pongamos dos minutos que dura la entrevista consular y tú llevas 500 documentos.</span><span class="tx">“Llevas 500 documentos y no encuentras el predial.mp4</span></td><td>Preguntas frecuentes</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">El hecho de que tú practiques de sobremanera y estudies y te como dicen…</span><span class="tx">“Si te aprendes las respuestas de memoria, PEOR.mp4</span></td><td>Preguntas frecuentes</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Tú me puedes dar la certeza de que entre los clientes de My Visago existen…</span><span class="tx">Clientes antes ilegal, hoy con visa en mano.mp4</span></td><td>Tipos de caso</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Quiero tramitar mi visa, pero mi hermano está de forma ilegal en Estados Unidos.</span><span class="tx">Mi hermano está ilegal copia.mp4</span></td><td>Tipos de caso</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Yo no sé quién inventó que el hecho de tener familiares con presencia ilegal en…</span><span class="tx">PREMIUM 1(1).mp4</span></td><td>Tipos de caso</td><td><span class="tag">estudio</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">A partir de que eres una persona mayor de edad, respondes por tus propios actos.</span><span class="tx">PREMIUM 2(1).mp4</span></td><td>Tipos de caso</td><td><span class="tag">estudio</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Me dicen que el tramitar un perdón migratorio puede costar alrededor de $5,000…</span><span class="tx">Perdón migratorio por 5 mil dólares vs. 9,999 peso.mp4</span></td><td>Tipos de caso</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">Existen muchos charlatanes y muchos estafadores que te prometen visas…</span><span class="tx">CONFIANZA.mp4</span></td><td>Verdades incómodas del sistema consular</td><td><span class="tag">estudio</span></td><td>0</td><td>listo</td></tr><tr><td><span class="tit">¿Qué me puedes platicar acerca de las visas garantizadas?</span><span class="tx">Nadie te puede garantizar una visa, ni por 50 mil .mp4</span></td><td>Verdades incómodas del sistema consular</td><td><span class="tag">podcast</span></td><td>0</td><td>listo</td></tr></table>
+<footer>Instagram · Facebook · TikTok — se publica solo, sin intervención diaria.<br>
+Guadalajara · Morelia · Aguascalientes · León · Querétaro</footer>
+</div></body></html>
