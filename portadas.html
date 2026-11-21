@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="900">
+<title>MyVisaGo — Miniaturas de lo que viene</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#040404;color:#fff;font-family:Montserrat,'Segoe UI',system-ui,sans-serif;
+ padding:40px 28px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto}
+header{border-bottom:2px solid #00C4BA;padding-bottom:22px;margin-bottom:34px}
+.logo{font-size:30px;font-weight:700;letter-spacing:-.5px}
+.logo span{color:#00C4BA}
+.sub{color:#9E9E9E;font-size:13px;margin-top:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:38px}
+.kpi{background:#2A2A2A;border-radius:10px;padding:18px 20px;border-left:3px solid #00C4BA}
+.kpi .n{font-size:30px;font-weight:700;color:#00C4BA;line-height:1.1}
+.kpi .l{font-size:11px;color:#9E9E9E;text-transform:uppercase;letter-spacing:.9px;margin-top:5px}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:1.3px;margin:36px 0 16px;
+ font-weight:600}
+h2::after{content:'';display:block;width:46px;height:2px;background:#00C4BA;margin-top:7px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;color:#9E9E9E;font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;
+ padding:9px 10px;border-bottom:1px solid #2A2A2A;font-weight:600}
+td{padding:12px 10px;border-bottom:1px solid #161616;vertical-align:top}
+tr:hover td{background:#0d0d0d}
+.tag{display:inline-block;background:#2A2A2A;color:#00C4BA;font-size:10.5px;
+ padding:3px 9px;border-radius:20px;white-space:nowrap}
+.hora{color:#00C4BA;font-weight:600;white-space:nowrap}
+.tit{font-weight:500}
+.tx{color:#9E9E9E;font-size:12px;margin-top:3px;display:block}
+.copy{white-space:pre-line;font-size:12.5px;min-width:300px;max-width:430px;line-height:1.55}
+.tags{color:#00C4BA;font-size:11px;min-width:190px;max-width:260px;line-height:1.6;
+ word-break:break-word}
+.aviso{background:#2a1f00;border-left:3px solid #d99a00;padding:14px 18px;border-radius:8px;
+ font-size:13px;margin-bottom:22px}
+
+/* La campana: cuando falta material, esto es lo primero y lo único que se ve. */
+.alerta{border-radius:14px;padding:34px 36px;margin-bottom:34px;position:relative;overflow:hidden}
+.alerta.roja{background:linear-gradient(135deg,#3a0d0d,#1a0606);border:2px solid #ff4d4d}
+.alerta.ambar{background:linear-gradient(135deg,#2e2200,#17110 0);border:2px solid #d99a00}
+.alerta .badge{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;
+ letter-spacing:1.6px;text-transform:uppercase;padding:7px 16px;border-radius:30px;margin-bottom:18px}
+.alerta.roja .badge{background:#ff4d4d;color:#1a0606}
+.alerta.ambar .badge{background:#d99a00;color:#17110a}
+.alerta .campana{animation:tin 1.6s ease-in-out infinite;display:inline-block;font-size:14px}
+@keyframes tin{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(14deg)}
+ 80%{transform:rotate(-12deg)}90%{transform:rotate(7deg)}}
+.alerta h3{font-size:30px;font-weight:700;line-height:1.22;margin-bottom:14px;letter-spacing:-.4px}
+.alerta.roja h3{color:#ff8080}
+.alerta.ambar h3{color:#ffc247}
+.alerta p{font-size:15px;color:#e4e4e4;max-width:74ch;margin-bottom:10px}
+.alerta .cifra{font-size:62px;font-weight:700;line-height:1;margin:6px 0 4px}
+.alerta.roja .cifra{color:#ff4d4d}
+.alerta.ambar .cifra{color:#d99a00}
+.alerta .cifra small{font-size:16px;font-weight:600;color:#9E9E9E;margin-left:10px}
+.barra{height:11px;background:#000;border-radius:7px;overflow:hidden;margin:20px 0 9px;
+ border:1px solid #333}
+.barra i{display:block;height:100%;border-radius:7px}
+.alerta.roja .barra i{background:linear-gradient(90deg,#ff4d4d,#ff8080)}
+.alerta.ambar .barra i{background:linear-gradient(90deg,#d99a00,#ffc247)}
+.ok .barra i{background:linear-gradient(90deg,#00C4BA,#5fe8e0)}
+.barra-txt{font-size:12px;color:#9E9E9E;display:flex;justify-content:space-between}
+.quehacer{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.quehacer b{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:1.1px}
+.quehacer p{margin-top:8px;font-size:14.5px}
+.ok{background:linear-gradient(135deg,#052420,#021411);border:2px solid #00C4BA;
+ border-radius:14px;padding:26px 32px;margin-bottom:34px}
+.ok h3{color:#00C4BA;font-size:22px;font-weight:700;margin-bottom:7px}
+.ok p{color:#d8d8d8;font-size:14.5px}
+.vacio{color:#9E9E9E;font-style:italic;padding:22px 10px}
+
+/* Fichas: un reel por tarjeta; al dar clic se abre y muestra el copy. */
+.dia{font-size:13px;text-transform:uppercase;letter-spacing:1.2px;color:#9E9E9E;
+ margin:26px 0 10px;font-weight:600}
+.ficha{background:#2A2A2A;border-radius:12px;margin-bottom:10px;border:1px solid #333;
+ overflow:hidden}
+.ficha[open]{border-color:#00C4BA}
+.ficha summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;
+ padding:15px 18px}
+.ficha summary::-webkit-details-marker{display:none}
+.ficha summary:hover{background:#333}
+.ficha .hora{font-size:22px;min-width:66px}
+.ficha .cuerpo{flex:1;min-width:0}
+.ficha .tit{display:block;font-weight:600;font-size:15px;line-height:1.35}
+.ficha .meta{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:7px}
+.ficha .flecha{color:#00C4BA;font-size:12px;white-space:nowrap}
+.ficha[open] .flecha::before{content:'Ocultar copy';}
+.ficha[open] .flecha{font-size:0}
+.ficha[open] .flecha::before{font-size:12px}
+.ficha .copy{max-width:none;min-width:0;padding:4px 20px 20px 100px;font-size:14px;
+ line-height:1.65;color:#eee;border-top:1px solid #333;padding-top:18px}
+.red{font-size:11px;font-weight:600;color:#fff;background:#000;border:1px solid #444;
+ padding:2px 9px;border-radius:20px;text-decoration:none}
+a.red{color:#00C4BA;border-color:#00C4BA}
+a.red.drive{color:#ffc247;border-color:#ffc247}
+.sello{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:20px;
+ text-transform:uppercase;letter-spacing:.6px}
+.sello.ok{background:#00C4BA;color:#04201e}
+.sello.pen{background:#3a3a3a;color:#ddd}
+.sello.mal{background:#ff4d4d;color:#1a0606}
+@media(max-width:640px){.ficha .copy{padding-left:20px}
+ .ficha summary{flex-wrap:wrap}}
+.vermini{display:inline-block;margin-top:14px;padding:8px 14px;border:1px solid #00C4BA;
+ border-radius:8px;color:#00C4BA;text-decoration:none;font-size:13px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
+.mini{background:#2A2A2A;border-radius:10px;overflow:hidden}
+.mini img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#111}
+.mini .pie{padding:8px 10px;font-size:12px}
+.mini .cuando{color:#00C4BA;font-weight:700}
+.mini .set{color:#fff;font-weight:600}
+.mini .carp{color:#9E9E9E;font-size:11px;word-break:break-word}
+.mini .sinp{aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;
+ color:#ff6b6b;font-weight:700;text-align:center;padding:10px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid #2A2A2A;
+ color:#9E9E9E;font-size:11.5px}
+</style></head><body><div class="wrap">
+<header>
+  <div class="logo">MYvisa<span>GO</span></div>
+  <div class="sub">Miniaturas de los próximos reels · actualizado Viernes 20 de noviembre · 18:45</div>
+  <a class="vermini" href="index.html">← Volver al panel</a>
+</header>
+<p class="sub" style="margin-bottom:22px">Así se va a ver la portada de cada reel en Instagram,
+Facebook y TikTok. Si alguna no sirve, avisa con la fecha y la hora y se cambia antes de que salga.</p>
+<h2>Hoy · Viernes 20 de noviembre</h2><div class="grid"><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6b00e874268fda5bfe6f2b1c/2d26c5c4046e-portada-1.jpg" alt=""><div class="pie"><div class="cuando">19:00</div><div class="set">oficina asesores</div><div class="carp">13 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1-JZOmTE6nGuKsYAXOURVlz7K_b87wWIM/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afe593aba77d4afb4dea1a7/a30558f598b1-portada.jpg" alt=""><div class="pie"><div class="cuando">21:00</div><div class="set">entrevista ventana</div><div class="carp">17 NOV - SEM2 · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1zZCMO1LOle0fclLb1kMGIbWsRFl-wQVu/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div></div><h2>Mañana · Sábado 21 de noviembre</h2><div class="grid"><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6b00e912268fda5bfe6f3787/8fea4483420e-portada-1.jpg" alt=""><div class="pie"><div class="cuando">09:00</div><div class="set">podcast verde</div><div class="carp">Clips Editados Podcast · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1PiAhQMOMGJEY7HV6k6EHnjxWNdUVDj25/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afce65e77a01e462262740b/9866c705fc86-portada.jpg" alt=""><div class="pie"><div class="cuando">13:00</div><div class="set">escritorio Edgar</div><div class="carp">12 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1ipAT5gkT_UMyyZW-tKIPc9dKfOLjJP9F/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afce1f53589612e68ab49a6/b68e7c4e9a4b-portada.jpg" alt=""><div class="pie"><div class="cuando">17:00</div><div class="set">sucursal</div><div class="carp">reels - testimonios - check in 11 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1V9eb0wUChpw_QWv1y_Qz91JX_ZdDFTjZ/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afcee513309cfeb53836461/8b271fcf2a5d-portada.jpg" alt=""><div class="pie"><div class="cuando">19:00</div><div class="set">podcast azul</div><div class="carp">16 NOV - SEM 2 · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1X4FV77Ee0CclgqplXKWz4I2sF71CSHxj/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afce8f5f560033dc171e031/481d8ae5064c-portada.jpg" alt=""><div class="pie"><div class="cuando">21:00</div><div class="set">oficina asesores</div><div class="carp">13 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1uYDoUTKf1xq9JB2C2M_4AreY5sJBlfir/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div></div><h2>Domingo 22 de noviembre</h2><div class="grid"><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afe59a0898cec9ac74bd597/72741d0bdc25-portada.jpg" alt=""><div class="pie"><div class="cuando">09:00</div><div class="set">entrevista ventana</div><div class="carp">17 NOV - SEM2 · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1hNhlmowY1eMBmpCa9q35sU_Apiub7zln/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afcc78b893246071ff6b7e8/366f4ee56342-portada.jpg" alt=""><div class="pie"><div class="cuando">13:00</div><div class="set">podcast verde</div><div class="carp">Clips Editados Podcast · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1YmQ4kqeIX75AJdkeU8k6gpMoMgtXgGi8/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afce6bfa30b968e3fffae64/808743945f40-portada.jpg" alt=""><div class="pie"><div class="cuando">17:00</div><div class="set">escritorio Edgar</div><div class="carp">12 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1iDicv8cnT2fDFxqOgFQUxdMih2SJfUHM/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afce24b7c3b573a62b8075f/55b6aceea84c-portada.jpg" alt=""><div class="pie"><div class="cuando">19:00</div><div class="set">sucursal</div><div class="carp">reels - testimonios - check in 11 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1v_kFzpttFttyXOLkCteiqBQwgKM8aJE3/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afcef64716ed595fda71c4c/87789801d4bb-portada.jpg" alt=""><div class="pie"><div class="cuando">21:00</div><div class="set">podcast azul</div><div class="carp">16 NOV - SEM 2 · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1U0Ek907mVBnmalnrZFDcO246jOJjYP8f/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div></div><h2>Lunes 23 de noviembre</h2><div class="grid"><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6b00e8afd40dd20617545dd5/5336dff470bc-portada-1.jpg" alt=""><div class="pie"><div class="cuando">09:00</div><div class="set">oficina asesores</div><div class="carp">13 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1n1W4R0IOKwCjJIboyzxAqwQSPIwcaos4/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afe5a08639028582b1b3bc1/508e87ea863e-portada.jpg" alt=""><div class="pie"><div class="cuando">13:00</div><div class="set">entrevista ventana</div><div class="carp">17 NOV - SEM2 · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1lu7SdFhVHrC6nUjZTegu7463xskEeeM_/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afcc7e477a01e46225effcc/bfa659e725b4-portada.jpg" alt=""><div class="pie"><div class="cuando">17:00</div><div class="set">podcast verde</div><div class="carp">Clips Editados Podcast · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1dYuBW-LsZmhKahf3BVJipJYWHE80p9_5/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afce721893246071ffa3b1e/1e920de3d019-portada.jpg" alt=""><div class="pie"><div class="cuando">19:00</div><div class="set">escritorio Edgar</div><div class="carp">12 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1QPxBcS2Flh5Y9UdYti4byg3pXaugLy1V/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div><div class="mini"><img loading="lazy" src="https://files.leadconnectorhq.com/file/6afce2b73309cfeb53825826/c9b1358256c0-portada.jpg" alt=""><div class="pie"><div class="cuando">21:00</div><div class="set">sucursal</div><div class="carp">reels - testimonios - check in 11 NOV · <a style="color:#00C4BA" href="https://drive.google.com/file/d/1TdSXMUAFDcu2xl4b6EcqNcxlZJpxHoT7/view" target="_blank" rel="noopener">Drive ↗</a></div></div></div></div>
+</div></body></html>
